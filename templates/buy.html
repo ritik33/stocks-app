@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Buy Stock
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Buy</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Symbol</label>
+            <input type="text" class="form-control" value="{{ stock.symbol }}" disabled>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Company Name</label>
+            <input type="text" class="form-control" value="{{ stock.companyName }}" disabled>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input type="text" class="form-control" value="{{ stock.lastPrice }}" disabled>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Quantity</label>
+            <input type="number" min="1" class="form-control" name="quantity" placeholder="How many stocks?" required>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Buy">
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Top Gainers
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <table class="table table-success table-hover ">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Symbol</th>
+                <th scope="col">Open Price</th>
+                <th scope="col">High Price</th>
+                <th scope="col">Low Price</th>
+                <th scope="col">Previous Price</th>
+                <th scope="col">Net Price</th>
+                <th scope="col">Traded Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for gainer in top_gainers %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ gainer.symbol }}</td>
+                <td>{{ gainer.openPrice }}</td>
+                <td>{{ gainer.highPrice }}</td>
+                <td>{{ gainer.lowPrice }}</td>
+                <td>{{ gainer.previousPrice }}</td>
+                <td>{{ gainer.netPrice }}</td>
+                <td>{{ gainer.tradedQuantity }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}

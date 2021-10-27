@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ user.username }}'s Portfolio
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Portfolio</h1>
+    <h4>Balance: {{ investor.balance }}</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Symbol</th>
+                <th scope="col">Company Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Buy Price</th>
+                <th scope="col">Total Price</th>
+                <th scope="col">Buy</th>
+                <th scope="col">Sell</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ stock.symbol }}</td>
+                <td>{{ stock.company_name }}</td>
+                <td>{{ stock.quantity }}</td>
+                <td>{{ stock.price }}</td>
+                <td>{{ stock.total_price }}</td>
+                <td><a href="{% url 'buy' stock.symbol %}" class="btn btn-success">Buy</a></td>
+                <td><a href="{% url 'sell' stock.symbol stock.id %}" class="btn btn-primary">Sell</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

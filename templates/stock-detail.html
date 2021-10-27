@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Stock Detail
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ stock.companyName }} <a class="btn btn-success" href="{% url 'buy' stock.symbol %}">Buy</a> </h1>
+    <table class="table table-borderless table-hover">
+        <tbody>
+            <tr>
+                <th scope="row">Symbol</th>
+                <td>{{ stock.symbol }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Company Name</th>
+                <td>{{ stock.companyName }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Series</th>
+                <td>{{ stock.series }}</td>
+            </tr>
+            <tr>
+                <th scope="row">ISIN Code</th>
+                <td colspan="2">{{ stock.isinCode }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Face Value</th>
+                <td colspan="2">{{ stock.faceValue }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Last Price</th>
+                <td colspan="2">{{ stock.lastPrice }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Change</th>
+                <td colspan="2">{{ stock.change }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Percentage Change</th>
+                <td colspan="2">{{ stock.pChange }}%</td>
+            </tr>
+            <tr>
+                <th scope="row">Previous Close</th>
+                <td colspan="2">{{ stock.previousClose }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Open</th>
+                <td colspan="2">{{ stock.open }}</td>
+            </tr>
+            <tr>
+                <th scope="row">High</th>
+                <td colspan="2">{{ stock.dayHigh }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Low</th>
+                <td colspan="2">{{ stock.dayLow }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Close</th>
+                <td colspan="2">{{ stock.closePrice }}</td>
+            </tr>
+            <tr>
+                <th scope="row">VWAP</th>
+                <td colspan="2">{{ stock.averagePrice }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Total Traded Volume (shares)</th>
+                <td colspan="2">{{ stock.totalTradedVolume }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Total Traded Value (lacs)</th>
+                <td colspan="2">{{ stock.totalTradedValue }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Free Float Market Cap(Crs)</th>
+                <td colspan="2">{{ stock.cm_ffm }}</td>
+            </tr>
+            <tr>
+                <th scope="row">52 Week High</th>
+                <td colspan="2">{{ stock.high52 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">52 Week Low</th>
+                <td colspan="2">{{ stock.low52 }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Lower Price Band</th>
+                <td colspan="2">{{ stock.pricebandlower }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Upper Price Band</th>
+                <td colspan="2">{{ stock.pricebandupper }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

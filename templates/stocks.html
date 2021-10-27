@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+All Stocks
+{% endblock %}
+
+{% block content %}
+
+<h1 class="text-center"> All Stocks</h1>
+<div class="container">
+    <table class="table table-hover ">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Symbol</th>
+                <th scope="col">Name of Company</th>
+                <th scope="col">Buy</th>
+                <th scope="col">Explore</th>
+                <th scope="col">Wishlist</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for key, value in stocks.items %}
+            <tr>
+                {% if key != 'SYMBOL' and value != 'NAME OF THE COMPANY' %}
+                <th scope="row">{{ forloop.counter0 }}</th>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+                <td><a href="{% url 'buy' key %}" class="btn btn-success">Buy</a></td>
+                <td><a href="{% url 'stock-detail' key %}" class="btn btn-primary">Explore</a></td>
+                <td><a href="{% url 'watchlist' key %}" class="btn btn-info">Watchlist</a></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

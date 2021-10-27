@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="text-center">
+    {% if user.is_authenticated %}
+    <h1>Hi, {{ user.username }}</h1>
+    <h2>Welcome to Stocks</h2>
+    <a class="btn btn-primary btn-lg" href="{% url 'stocks' %}">Start Investing</a>
+    {% else %}
+    <h1>Welcome to Stocks</h1>
+    <a class="btn btn-primary btn-lg" href="{% url 'sign-up' %}">Sign Up</a>
+    <a class="btn btn-primary btn-lg" href="{% url 'sign-in' %}">Sign In</a>
+    <br>
+    <br>
+    {% endif %}
+
+  </div>
+</div>
+
+{% endblock %}
